@@ -54,25 +54,28 @@ Every AI agent today leaks data to big tech:
 
 ```bash
 # SSH into your VPS
-ssh root@YOUR_VPS_IP
+ssh root@<YOUR_VPS_IP>
 
 # Download and run (everything in 1 command)
-curl -fsSL https://raw.githubusercontent.com/YOUR_USER/freedom-stack/main/scripts/install.sh -o install.sh
+curl -fsSL https://raw.githubusercontent.com/Michae2xl/freedom-stack/main/scripts/install.sh -o install.sh
 chmod +x install.sh
 
 # Install everything (human + agent stack)
-bash install.sh --all --domain yourdomain.com
+bash install.sh --all --domain <yourdomain.com>
 
 # Or just the agent privacy cloud
-bash install.sh --agents --tor --searxng --domain yourdomain.com
+bash install.sh --agents --tor --searxng --domain <yourdomain.com>
 
 # Or just the human stack (no AI/agent components)
 bash install.sh --nextcloud --matrix --vaultwarden --jitsi --searxng --tor --wireguard --security --backup
+
+# No domain? Works via IP or Tor .onion
+bash install.sh --all
 ```
 
-After ~15 minutes, open `https://yourdomain.com` — your visual dashboard shows all services with live status.
+After ~15 minutes your stack is live. With a domain: `https://<yourdomain.com>`. Without: access services directly by port or via Tor .onion addresses printed at the end.
 
-> **⚠️ SSH port changes to 2222 after install.** Reconnect: `ssh -p 2222 root@YOUR_VPS_IP`
+> **⚠️ SSH port changes to 2222 after install.** Reconnect: `ssh -p 2222 root@<YOUR_VPS_IP>`
 
 ---
 
@@ -285,32 +288,9 @@ bash install.sh --agents --searxng --adguard --backup  # skips Linux-only harden
 
 Freedom Stack is the **only** product that combines AI agent infrastructure with privacy-native architecture.
 
-```
-                    PRIVACY
-                       ↑
-                       │
-                       │   ★ FREEDOM STACK
-                       │     (privacy-native + agents + human stack)
-                       │
-          Njalla/1984  │
-          (VPS only)   │         n8n AI Kit, Dify, Flowise
-                       │         (self-hosted, no privacy layer)
-                       │
-        ───────────────┼──────────────────────→ AI AGENTS
-                       │
-          Traditional  │   OpenAI / AWS / Google
-          self-hosted  │   (cloud, logs everything)
-                       │
-```
+No other platform routes agent traffic through Tor, generates .onion services, integrates E2E chat, VPN, private DNS, and anonymous search — all in a single command.
 
-| Metric | Value |
-|---|---|
-| Closest competitor gap | **3-4 months** of engineering to replicate |
-| Target market | **$12B+** (data privacy market) |
-| Active community | **3M+** across r/selfhosted, r/privacy, r/degoogle |
-| AI agent ecosystem | **500K+** GitHub stars in agent repos (2025) |
-
-**[Full market analysis, use cases, and business model →](WHY.md)**
+**[Full market analysis, use cases, and competitive landscape →](WHY.md)**
 
 ---
 
@@ -320,7 +300,6 @@ Freedom Stack is the **only** product that combines AI agent infrastructure with
 - [x] v2.0 — Security hardening (unified compose, isolated networks, health checks)
 - [x] v3.0 — Production-grade (PostgreSQL, Redis, Grafana, Portainer, Forgejo, Mail)
 - [x] v4.0 — Agent Privacy Cloud (Ollama, n8n, Qdrant, sandbox, Tor rotator)
-- [ ] v5.0 — coming soon
 
 ---
 

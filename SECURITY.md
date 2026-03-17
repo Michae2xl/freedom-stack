@@ -6,8 +6,7 @@ If you discover a security vulnerability in Freedom Stack, **do NOT open a publi
 
 Instead, report it privately:
 
-1. Email: [create a proton/tutanota address for this]
-2. Or: open a [private security advisory](../../security/advisories/new) on GitHub
+1. Open a [private security advisory](../../security/advisories/new) on GitHub
 
 Include:
 - Description of the vulnerability

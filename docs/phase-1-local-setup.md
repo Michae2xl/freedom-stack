@@ -70,7 +70,7 @@ Depois de instalar, abra o Terminal (Ctrl+Alt+T) e rode o script:
 
 ```bash
 # Baixar e rodar o script de hardening:
-curl -fsSL https://raw.githubusercontent.com/seu-repo/freedom-stack/main/local-setup.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Michae2xl/freedom-stack/main/scripts/local-setup.sh | bash
 ```
 
 Ou, se preferir rodar manualmente, o script faz o seguinte:

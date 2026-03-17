@@ -83,13 +83,13 @@ search.seudominio.com → IP_DO_VPS  (SearXNG)
 ssh root@SEU_IP_DO_VPS
 
 # Baixar o script:
-curl -fsSL -o /root/install.sh https://SEU_LINK/install.sh
+curl -fsSL -o /root/install.sh https://raw.githubusercontent.com/Michae2xl/freedom-stack/main/scripts/install.sh
 chmod +x /root/install.sh
 
-# Instalar TUDO (v2.0 — production-hardened):
+# Instalar TUDO (humanos + agents):
 bash /root/install.sh --all --domain seudominio.com
 
-# Sem domínio (acesso via Tor .onion):
+# Sem domínio (acesso via Tor .onion ou IP direto):
 bash /root/install.sh --all
 ```
 
@@ -99,7 +99,7 @@ bash /root/install.sh --all
 ssh -p 2222 root@SEU_IP_DO_VPS
 ```
 
-**O que acontece (v2.0):** script roda 10-15 min. Gera 1 docker-compose.yml unificado com redes isoladas, health checks, resource limits. Instala Watchtower (auto-update) + Uptime Kuma (monitoramento). Credenciais criptografadas com GPG.
+**O que acontece:** script roda 10-15 min. Gera 1 docker-compose.yml unificado com redes isoladas, health checks, resource limits. Instala Watchtower (auto-update) + Uptime Kuma (monitoramento). Credenciais criptografadas com GPG.
 
 ## 4.5 — Pós-instalação
 

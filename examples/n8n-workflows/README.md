@@ -1,14 +1,15 @@
 # n8n Workflow Templates
 
-Pre-built agent workflows for Freedom Stack — coming soon.
+Pre-built agent workflows for Freedom Stack.
 
-## Planned templates
+## How to use
 
-- **OSINT Research Agent** — SearXNG → Ollama → Qdrant → Matrix report
-- **Trading Monitor** — price alerts via SearXNG → Gotify notifications
-- **Content Monitor** — web scraping via Tor → Nextcloud storage
-- **Multi-Agent Coordinator** — n8n orchestrating agents via Matrix
+1. Open n8n at `http://localhost:5678`
+2. Click **Import from file**
+3. Select any `.json` file from this directory
+4. Configure credentials (Ollama URL, Qdrant URL, etc.)
+5. Activate the workflow
 
-## Contributing
+## Submitting your workflow
 
-Submit your workflow exports (`.json`) via pull request.
+Export your workflow as JSON from n8n and open a pull request.
