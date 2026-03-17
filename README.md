@@ -200,7 +200,7 @@ requests.put("http://nextcloud:80/remote.php/dav/files/admin/agent-results.json"
 | **Anonymous search** | ✗ | ✗ | ✗ | **SearXNG** |
 | **E2E encrypted chat** | ✗ | ✗ | ✗ | **Matrix** |
 | **.onion services** | ✗ | ✗ | ✗ | **11 services** |
-| **Integrated VPN** | ✗ | ✗ | ✗ | **WireGuard** |
+| **Integrated VPN** | ✗ | ✗ | ✗ | **WireGuard + Tor** |
 | **Private DNS** | ✗ | ✗ | ✗ | **AdGuard** |
 | **Private payments** | ✗ | ✗ | ✗ | **Zcash/ZODL** |
 | **Personal cloud** | ✗ | ✗ | ✗ | **Nextcloud** |

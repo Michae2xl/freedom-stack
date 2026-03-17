@@ -24,7 +24,7 @@ The data privacy market is valued at **$12B+** and growing 15% yearly. Meanwhile
 | Flowise | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
 | AutoGPT | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
 | Northflank | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ | ✗ |
-| **Freedom Stack** | **✓** | **✓** | **11 services** | **Matrix E2E** | **SearXNG** | **AdGuard** | **Zcash/ZODL** | **WireGuard** |
+| **Freedom Stack** | **✓** | **✓** | **11 services** | **Matrix E2E** | **SearXNG** | **AdGuard** | **Zcash/ZODL** | **WireGuard + Tor** |
 
 They are **self-hosted**. Freedom Stack is **privacy-native**.
 
