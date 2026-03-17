@@ -37,7 +37,6 @@ soft "All containers up" "cd ${BASE_DIR} && docker compose ps --status running |
 # --- Container Health ---
 echo -e "\n${CYAN}Container health:${NC}"
 for c in $(docker ps --format '{{.Names}}' 2>/dev/null | grep "^freedom-"); do
-    local health
     health=$(docker inspect --format='{{.State.Health.Status}}' "$c" 2>/dev/null || echo "none")
     case "$health" in
         healthy)   ok "${c}: healthy" ;;
@@ -78,7 +77,6 @@ check "fail2ban running" "systemctl is-active fail2ban"
 soft "CrowdSec running" "systemctl is-active crowdsec"
 soft "SSH key-only" "grep -q 'PasswordAuthentication no' /etc/ssh/sshd_config"
 
-local ssh_port
 ssh_port=$(grep "^Port " /etc/ssh/sshd_config 2>/dev/null | awk '{print $2}')
 if [[ "$ssh_port" != "22" && -n "$ssh_port" ]]; then
     ok "SSH port: ${ssh_port} (non-standard)"
