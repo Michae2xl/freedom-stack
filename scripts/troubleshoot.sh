@@ -89,15 +89,12 @@ soft "fail2ban vaultwarden jail" "fail2ban-client status vaultwarden"
 
 # --- Swap / Memory ---
 echo -e "\n${CYAN}Resources:${NC}"
-local ram_used
 ram_used=$(free -m | awk '/^Mem:/{printf "%.0f", $3/$2*100}')
-local swap_total
 swap_total=$(free -m | awk '/^Swap:/{print $2}')
 echo -e "  ${GREEN}i${NC} RAM usage: ${ram_used}%"
 echo -e "  ${GREEN}i${NC} Swap: ${swap_total}MB"
 [[ "$swap_total" -gt 0 ]] && ok "Swap configured" || skip "No swap (risky with 14 containers)"
 
-local disk_pct
 disk_pct=$(df / | tail -1 | awk '{print $5}' | tr -d '%')
 if [[ $disk_pct -lt 80 ]]; then ok "Disk: ${disk_pct}%"
 elif [[ $disk_pct -lt 90 ]]; then skip "Disk: ${disk_pct}% (getting full)"
@@ -108,9 +105,7 @@ echo -e "\n${CYAN}Backup:${NC}"
 soft "Rclone installed" "command -v rclone"
 soft "Backup cron active" "crontab -l | grep -q freedom-stack/backup.sh"
 if [[ -f /var/log/freedom-backup.log ]]; then
-    local last_backup
     last_backup=$(grep "Backup complete" /var/log/freedom-backup.log | tail -1)
-    local last_integrity
     last_integrity=$(grep "INTEGRITY CHECK" /var/log/freedom-backup.log | tail -1)
     [[ -n "$last_backup" ]] && ok "Last backup: $last_backup" || skip "No backup completed yet"
     [[ "$last_integrity" == *"PASSED"* ]] && ok "Last integrity: PASSED" || skip "Integrity: not verified yet"
