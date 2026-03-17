@@ -1,0 +1,12 @@
+# Credentials
+*credentials*.txt
+*.env
+.env*
+
+# Generated
+docker-compose.yml
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
