@@ -83,7 +83,7 @@ After ~15 minutes your stack is live. With a domain: `https://<yourdomain.com>`.
 
 ### 34 Containers, 3 Isolated Networks, 23 Health Checks
 
-<details>
+<details open>
 <summary><b>🤖 Agent Privacy Cloud (8 components)</b></summary>
 
 | Service | What It Does | Internal Endpoint |
@@ -99,7 +99,7 @@ After ~15 minutes your stack is live. With a domain: `https://<yourdomain.com>`.
 
 </details>
 
-<details>
+<details open>
 <summary><b>👤 Human Services (10 services)</b></summary>
 
 | Service | Replaces | Subdomain |
@@ -117,7 +117,7 @@ After ~15 minutes your stack is live. With a domain: `https://<yourdomain.com>`.
 
 </details>
 
-<details>
+<details open>
 <summary><b>📊 Monitoring & Infrastructure (8 components)</b></summary>
 
 | Service | Function |
@@ -133,7 +133,7 @@ After ~15 minutes your stack is live. With a domain: `https://<yourdomain.com>`.
 
 </details>
 
-<details>
+<details open>
 <summary><b>🔒 Security Hardening</b></summary>
 
 - Unified `docker-compose.yml` (not 34 separate files)
