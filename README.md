@@ -320,12 +320,7 @@ Freedom Stack is the **only** product that combines AI agent infrastructure with
 - [x] v2.0 — Security hardening (unified compose, isolated networks, health checks)
 - [x] v3.0 — Production-grade (PostgreSQL, Redis, Grafana, Portainer, Forgejo, Mail)
 - [x] v4.0 — Agent Privacy Cloud (Ollama, n8n, Qdrant, sandbox, Tor rotator)
-- [ ] macOS auto-detection in install.sh
-- [ ] Pre-built n8n agent templates (OSINT, trading, research, monitor)
-- [ ] Landing page + interactive demo
-- [ ] Managed hosting option
-- [ ] Multi-VPS clustering via WireGuard
-- [ ] GPU passthrough for Ollama (NVIDIA)
+- [ ] v5.0 — coming soon
 
 ---
 
@@ -367,3 +362,20 @@ bash install.sh --all --domain yourdomain.com
 [Star this repo](../../stargazers) if you believe privacy is a right, not a feature.
 
 </div>
+
+---
+
+## 💛 Donations
+
+If Freedom Stack saved you time or protects your privacy, consider supporting the project.
+All donations are received in privacy-preserving currencies.
+
+**Zcash (Shielded — fully private):**
+```
+u12rrgyaz7hwyzf0px29ka43tvk7nu92w7mzc99yv9ld3pg96fp4ef0mxe5kd0j5544yc33jqe66fd5s0fjv7uvsxh0uz24c7fuw44wfwcg2g74jgg2ukmpvc0l4a7r56sgjrra35fy4f0k3spjn5uh6kqxx5elmuv3ajd7zjs8s973e0n
+```
+
+**Bitcoin:**
+```
+bc1qus6gvfyepx38apvdxvqh4qj8n3d0jssthzmlnx
+```
