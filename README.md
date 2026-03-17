@@ -324,18 +324,6 @@ Freedom Stack is the **only** product that combines AI agent infrastructure with
 
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-Areas where help is needed:
-- Testing on different VPS providers
-- n8n workflow templates for common agent use cases
-- macOS compatibility improvements
-- Documentation translations (PT-BR, ZH-CN, ES)
-- Security audits
-
----
 
 ## 📄 License
 
