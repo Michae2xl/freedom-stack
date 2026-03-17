@@ -765,7 +765,9 @@ setup_forgejo() {
 setup_mail() {
     step "Stalwart Mail Server"
     mkdir -p "$BASE_DIR/stalwart"
-    local mail_admin_pass; mail_admin_pass=$(gen_password 24)
+    local mail_admin_pass
+    mail_admin_pass=$(gen_password 24)
+    save_credential "  Mail Admin Pass: ${mail_admin_pass}"
 
     add_service "
   stalwart:
@@ -1606,9 +1608,11 @@ read_onion_addresses() {
 secure_credentials() {
     chmod 600 "$CREDENTIALS_FILE"
     if command -v gpg &>/dev/null; then
-        gpg --batch --yes --symmetric --cipher-algo AES256 -o "${CREDENTIALS_FILE}.gpg" "$CREDENTIALS_FILE" 2>/dev/null && \
-            log "Credentials encrypted: ${CREDENTIALS_FILE}.gpg" || \
+        if gpg --batch --yes --symmetric --cipher-algo AES256 -o "${CREDENTIALS_FILE}.gpg" "$CREDENTIALS_FILE" 2>/dev/null; then
+            log "Credentials encrypted: ${CREDENTIALS_FILE}.gpg"
+        else
             warn "GPG encryption skipped — encrypt manually: gpg -c ${CREDENTIALS_FILE}"
+        fi
     fi
 }
 
