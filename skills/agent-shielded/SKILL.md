@@ -1,99 +1,99 @@
 ---
 name: agent-shielded
-description: "Agent Shielded — Agent Privacy Cloud. Infraestrutura privada para AI agents em 1 comando: Ollama, n8n, Qdrant, Agent Sandbox, Tor Rotator, Privoxy, Gotify, Agent Dashboard + Prometheus, Grafana, Portainer. Zero dados vazam. Triggers: 'agent shielded', 'agent privacy', 'AI agent infrastructure', 'private LLM', 'Ollama setup', 'n8n workflows', 'vector database', 'agent sandbox', 'open source AI', 'agente privado', 'infraestrutura de agente', 'freedom stack agents'."
+description: "Agent Shielded — Agent Privacy Cloud. Private infrastructure for AI agents in one command: Ollama, n8n, Qdrant, Agent Sandbox, Tor Rotator, Privoxy, Gotify, Agent Dashboard + Prometheus, Grafana, Portainer. Zero data leaks. Triggers: 'agent shielded', 'agent privacy', 'AI agent infrastructure', 'private LLM', 'Ollama setup', 'n8n workflows', 'vector database', 'agent sandbox', 'open source AI', 'private agent', 'agent infrastructure', 'freedom stack agents'."
 ---
 
 # Skill Agent Shielded — Freedom Stack Agent Privacy Cloud
 
-> **1 comando. Zero dados vazam.** Infraestrutura privada completa para AI agents.
+> **1 command. Zero data leaks.** Complete private infrastructure for AI agents.
 
 **Repo:** https://github.com/Michae2xl/freedom-stack
 
 ---
 
-## O Que Esta Skill Faz
+## What This Skill Does
 
-Instala o **Agent Privacy Cloud** completo de uma vez:
+Installs the full **Agent Privacy Cloud** at once:
 
 ```bash
-ssh root@SEU_VPS_IP
+ssh root@YOUR_VPS_IP
 curl -fsSL https://raw.githubusercontent.com/Michae2xl/freedom-stack/main/scripts/install.sh -o install.sh
-bash install.sh --agents --searxng --tor --security --domain seudominio.com
+bash install.sh --agents --searxng --tor --security --domain yourdomain.com
 
-# Sem domínio (funciona via IP + Tor .onion):
+# No domain (works via IP + Tor .onion):
 bash install.sh --agents --searxng --tor --security
 ```
 
 ---
 
-## Serviços Instalados
+## Installed Services
 
-### Agent Privacy Cloud (8 componentes)
+### Agent Privacy Cloud (8 components)
 
-| Serviço | Porta | O que faz |
-|---------|-------|-----------|
-| **Ollama + Open WebUI** | :11434 / :8181 | LLM local — zero dados para OpenAI/Anthropic |
-| **n8n** | :5678 | Orquestração visual de workflows AI |
-| **Qdrant** | :6333 | Vector DB — memória semântica de longo prazo |
-| **Agent Sandbox** | — | Python 3.12 + Node 20 isolado |
-| **Tor Rotator** | :9060 | Novo circuit a cada 30s para scraping sem ban |
-| **Privoxy** | :8118 | HTTP proxy via Tor — requests anônimos |
-| **Gotify** | :8070 | Notificações push privadas pro celular |
-| **Agent Dashboard** | :3333 | Status real-time de toda infra |
+| Service | Port | What It Does |
+|---------|------|--------------|
+| **Ollama + Open WebUI** | :11434 / :8181 | Local LLM — zero data to OpenAI/Anthropic |
+| **n8n** | :5678 | Visual AI workflow orchestration |
+| **Qdrant** | :6333 | Vector DB — long-term semantic memory |
+| **Agent Sandbox** | — | Isolated Python 3.12 + Node 20 |
+| **Tor Rotator** | :9060 | New circuit every 30s for scraping without bans |
+| **Privoxy** | :8118 | HTTP proxy via Tor — anonymous requests |
+| **Gotify** | :8070 | Private push notifications to phone |
+| **Agent Dashboard** | :3333 | Real-time status of all infra |
 
-### Infraestrutura
+### Infrastructure
 
-| Serviço | Porta | Função |
-|---------|-------|--------|
-| **Prometheus** | :9090 | Métricas |
+| Service | Port | Function |
+|---------|------|----------|
+| **Prometheus** | :9090 | Metrics |
 | **Grafana** | :3100 | Dashboards |
 | **Portainer** | :9000 | Docker GUI |
-| **SearXNG** | :8888 | Busca anônima (JSON API habilitada) |
+| **SearXNG** | :8888 | Anonymous search (JSON API enabled) |
 
 ---
 
-## Fluxo do Agent
+## Agent Flow
 
 ```
 Agent (sandbox)
-    ├──→ SearXNG      :8888  busca anônima — GET /search?q=QUERY&format=json
-    ├──→ Ollama       :11434 LLM local — POST /api/generate
-    ├──→ Qdrant       :6333  memória vetorial — PUT /collections/memory/points
-    ├──→ Tor/Privoxy  :9060/:8118  rede anônima para requests externos
-    ├──→ Gotify       :8070  notificações push pro dono
-    └──→ n8n          :5678  orquestração de workflows complexos
+    |---> SearXNG      :8888  anonymous search — GET /search?q=QUERY&format=json
+    |---> Ollama       :11434 local LLM — POST /api/generate
+    |---> Qdrant       :6333  vector memory — PUT /collections/memory/points
+    |---> Tor/Privoxy  :9060/:8118  anonymous network for external requests
+    |---> Gotify       :8070  push notifications to owner
+    |---> n8n          :5678  complex workflow orchestration
 ```
 
-### Exemplo de código (dentro do sandbox):
+### Code example (inside the sandbox):
 
 ```python
 import requests
 
-# 1. Busca anônima (Google/Bing/DDG sem saber quem é)
+# 1. Anonymous search (Google/Bing/DDG never know who you are)
 results = requests.get(
     "http://searxng:8080/search",
     params={"q": "bitcoin price", "format": "json"}
 ).json()
 
-# 2. Analisa com LLM local (zero dados pra cloud)
+# 2. Analyze with local LLM (zero data to cloud)
 analysis = requests.post("http://ollama:11434/api/generate", json={
     "model": "llama3.2:3b",
     "prompt": f"Analyze: {results['results'][0]['content']}",
     "stream": False
 }).json()["response"]
 
-# 3. Salva memória vetorial (persistente)
+# 3. Store vector memory (persistent)
 requests.put("http://qdrant:6333/collections/memory/points", json={
     "points": [{"id": 1, "vector": [0.1]*384, "payload": {"analysis": analysis}}]
 })
 
-# 4. Request externo anônimo via Tor
+# 4. Anonymous external request via Tor
 data = requests.get(
     "https://api.example.com/data",
     proxies={"https": "socks5h://tor-rotator:9050"}
 ).json()
 
-# 5. Notifica dono no celular
+# 5. Notify owner on phone
 requests.post("http://gotify:80/message", json={
     "title": "Agent Alert", "message": analysis[:100], "priority": 5
 })
@@ -104,133 +104,133 @@ requests.post("http://gotify:80/message", json={
 ## Use Cases
 
 ### 1. Trading / Betting Agents
-Agent pesquisa odds via SearXNG → analisa com Ollama → executa via Tor (anônimo) → armazena em Qdrant → notifica via Gotify.
+Agent searches odds via SearXNG → analyzes with Ollama → executes via Tor (anonymous) → stores in Qdrant → notifies via Gotify.
 
-### 2. OSINT / Pesquisa
-Scraping via Tor Rotator (novo circuit a cada 30s, sem ban) → findings em Qdrant como embeddings → cross-reference semântico.
+### 2. OSINT / Research
+Scraping via Tor Rotator (new circuit every 30s, no IP bans) → findings stored in Qdrant as embeddings → semantic cross-reference.
 
-### 3. Swarm de Agents
-50+ agents em sandbox → comunicação via Matrix E2E → memória compartilhada em Qdrant → orquestração via n8n visual.
+### 3. Agent Swarms
+50+ agents in sandbox → communication via Matrix E2E → shared memory in Qdrant → orchestration via n8n visual workflows.
 
 ### 4. Enterprise Private AI
-LLM local (Ollama, zero cloud) → storage GDPR-compliant → LGPD/HIPAA sem vendor cloud.
+Local LLM (Ollama, zero cloud) → GDPR-compliant storage → HIPAA without cloud vendors.
 
-### 5. Jornalismo Investigativo AI
-Agent monitora fontes via Tor → cruza dados → armazena evidências criptografadas → comunica via Matrix E2E + .onion.
-
----
-
-## Como Usar Esta Skill
-
-### Quando o usuário chegar, pergunte:
-
-1. **Objetivo?** (que tipo de agent quer rodar?)
-2. **Tem VPS?** (specs: 16GB+ RAM recomendado pra Ollama)
-3. **Tem domínio?** (opcional — funciona via IP/Tor .onion)
-4. **Quer serviços humanos também?** (se sim, use skill soberana junto)
-
-### Baseado nas respostas:
-
-| Situação | Comando |
-|----------|---------|
-| Agent Cloud completo | `--agents --searxng --tor --security` |
-| Agent Cloud + domínio | `--agents --searxng --tor --security --domain X` |
-| Agent Cloud + humano | `--all --domain X` (instala tudo) |
-| Só Ollama + n8n (mínimo) | `--agents` |
+### 5. Investigative Journalism AI
+Agent monitors sources via Tor → cross-references data → stores encrypted evidence → communicates via Matrix E2E + .onion.
 
 ---
 
-## Requisitos
+## How To Use This Skill
 
-| | Mínimo | Recomendado |
-|---|--------|-------------|
-| **RAM** | 8GB (sem Ollama) | 16GB+ (com Ollama) |
+### When the user arrives, ask:
+
+1. **Goal?** (what type of agent do you want to run?)
+2. **Have a VPS?** (specs: 16GB+ RAM recommended for Ollama)
+3. **Have a domain?** (optional — works via IP/Tor .onion)
+4. **Want human services too?** (if yes, use the soberana skill alongside)
+
+### Based on answers:
+
+| Situation | Command |
+|-----------|---------|
+| Full Agent Cloud | `--agents --searxng --tor --security` |
+| Agent Cloud + domain | `--agents --searxng --tor --security --domain X` |
+| Agent Cloud + human services | `--all --domain X` (installs everything) |
+| Ollama + n8n only (minimal) | `--agents` |
+
+---
+
+## Requirements
+
+| | Minimum | Recommended |
+|---|---------|-------------|
+| **RAM** | 8GB (without Ollama) | 16GB+ (with Ollama) |
 | **CPU** | 2 vCPUs | 4+ vCPUs |
-| **Disco** | 40GB | 100GB+ (modelos LLM: 2-7GB cada) |
+| **Disk** | 40GB | 100GB+ (LLM models: 2-7GB each) |
 | **OS** | Ubuntu 22.04 | Ubuntu 24.04 |
-| **Custo** | ~€8/mês | ~€18/mês (Hetzner CX32) |
+| **Cost** | ~EUR 8/mo | ~EUR 18/mo (Hetzner CX32) |
 
-### Modelos Ollama recomendados
+### Recommended Ollama Models
 ```bash
-# Leve (2GB RAM, rápido)
+# Light (2GB RAM, fast)
 docker exec freedom-ollama ollama pull llama3.2:3b
 
-# Balanceado (5GB RAM)
+# Balanced (5GB RAM)
 docker exec freedom-ollama ollama pull llama3.1:8b
 
-# Poderoso (12GB RAM)
+# Powerful (12GB RAM)
 docker exec freedom-ollama ollama pull llama3.1:70b
 ```
 
-### VPS Providers Privacy-Friendly
-| Provider | Privacidade | Preço (16GB) |
-|----------|-------------|--------------|
-| Hetzner | ★★★★☆ GDPR | €18/mês |
-| Njalla | ★★★★★ Zero KYC | ~€30/mês |
-| 1984.is | ★★★★★ Islândia | ~€25/mês |
+### Privacy-Friendly VPS Providers
+| Provider | Privacy | Price (16GB) |
+|----------|---------|--------------|
+| Hetzner | High, GDPR | EUR 18/mo |
+| Njalla | Maximum, Zero KYC | ~EUR 30/mo |
+| 1984.is | Maximum, Iceland | ~EUR 25/mo |
 
 ---
 
 ## Troubleshooting
 
 ```bash
-# Ver status
+# Check status
 docker compose ps
 
-# Logs de um serviço
+# Service logs
 docker compose logs freedom-ollama --tail 50
 
-# Testar Tor
+# Test Tor
 curl --socks5-hostname 127.0.0.1:9060 https://check.torproject.org/api/ip
 
-# Testar SearXNG JSON
+# Test SearXNG JSON
 curl "http://localhost:8888/search?q=test&format=json"
 
-# Testar Ollama
+# Test Ollama
 curl http://localhost:11434/api/generate -d '{"model":"llama3.2:3b","prompt":"hello","stream":false}'
 
-# Liberar memória para Ollama
+# Free memory for Ollama
 echo 3 > /proc/sys/vm/drop_caches
 
-# Script de diagnóstico
+# Full diagnostic script
 bash scripts/troubleshoot.sh
 ```
 
-### Bugs conhecidos e fixes (v4.0)
-- **Stalwart Mail:** imagem correta é `stalwartlabs/stalwart:latest`
-- **Agent Dashboard:** pacote npm correto é `dockerode` (não `docker-dockerode`)
-- **Privoxy:** não depende do Tor — funciona independente
-- **SearXNG JSON:** `formats: [html, json]` obrigatório no settings.yml
-- **Ollama sem memória:** rodar `echo 3 > /proc/sys/vm/drop_caches` antes
+### Known bugs and fixes (v4.0)
+- **Stalwart Mail:** correct image is `stalwartlabs/stalwart:latest`
+- **Agent Dashboard:** correct npm package is `dockerode` (not `docker-dockerode`)
+- **Privoxy:** does not depend on Tor — works independently
+- **SearXNG JSON:** `formats: [html, json]` required in settings.yml
+- **Ollama out of memory:** run `echo 3 > /proc/sys/vm/drop_caches` first
 
 ---
 
-## Posição de Mercado
+## Market Position
 
 ```
-                    PRIVACIDADE
-                         ↑
-                         │   ★ AGENT SHIELDED (Freedom Stack)
-                         │     (privacy-native + agents)
-                         │
-            Njalla/1984  │
-            (só VPS)     │    n8n AI Kit, Dify, LangChain
-                         │    (self-hosted, sem privacidade real)
-          ───────────────┼──────────────────────→ AI AGENTS
-                         │
-                         │    OpenAI / AWS / Google Cloud
-                         │    (cloud, loga tudo)
+                    PRIVACY
+                         |
+                         |   * AGENT SHIELDED (Freedom Stack)
+                         |     (privacy-native + agents)
+                         |
+            Njalla/1984  |
+            (VPS only)   |    n8n AI Kit, Dify, LangChain
+                         |    (self-hosted, no real privacy)
+          ---------------+------------------------> AI AGENTS
+                         |
+                         |    OpenAI / AWS / Google Cloud
+                         |    (cloud, logs everything)
 ```
 
-**Único produto no quadrante alta privacidade + infraestrutura AI agents.**
+**The only product in the high-privacy + AI agent infrastructure quadrant.**
 
 ---
 
-## Relação com Sovereign Stack
+## Relation to Sovereign Stack
 
-| Projeto | Público | Foco |
-|---------|---------|------|
-| **Agent Shielded / Freedom Stack** (esta skill) | Devs/Agents AI | Agent Privacy Cloud |
-| **Sovereign Stack** (skill soberana) | Humanos | Privacidade pessoal, degoogle |
+| Project | Audience | Focus |
+|---------|----------|-------|
+| **Agent Shielded / Freedom Stack** (this skill) | Devs/AI Agents | Agent Privacy Cloud |
+| **Sovereign Stack** (soberana skill) | Humans | Personal privacy, degoogle |
 
-Podem rodar **juntos no mesmo VPS** — são complementares.
+They can run **together on the same VPS** — fully complementary.
