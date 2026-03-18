@@ -12,7 +12,10 @@
 [![Health Checks](https://img.shields.io/badge/health_checks-23-green)]()
 [![Onion Services](https://img.shields.io/badge/.onion_services-11-purple)]()
 
-[Quick Start](#quick-start) · [What's Inside](#whats-inside) · [Agent Privacy Cloud](#agent-privacy-cloud) · [Why This Matters](WHY.md) · [Docs](docs/)
+[Quick Start](#quick-start) · [What's Inside](#whats-inside) · [Agent Privacy Cloud](#agent-privacy-cloud) · [Why This Matters](WHY.md)
+
+**Claude Code Skills:**
+[Agent Shielded](skills/agent-shielded/SKILL.md) · [Sovereign](https://github.com/Michae2xl/sovereign-stack/blob/main/skills/sovereign/SKILL.md)
 
 ---
 
