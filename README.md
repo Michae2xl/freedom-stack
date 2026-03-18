@@ -340,7 +340,7 @@ If Freedom Stack saved you time or protects your privacy, consider supporting th
 
 All donations are received in privacy-preserving currencies.
 
-**Zcash (Shielded — fully private):** Send from any shielded wallet — Mobile: [ZODL](https://electriccoin.co/zashi/), [Zingo](https://www.zingolabs.org/), [Ywallet](https://ywallet.app/), [Zkool](https://zkool.cc/) — Desktop: [Zingo](https://www.zingolabs.org/), [Ywallet](https://ywallet.app/), [Zkool](https://zkool.cc/)
+**Zcash (Shielded — fully private):** Send from any shielded wallet — Mobile: [ZODL](https://electriccoin.co/zashi/), [Zingo](https://www.zingolabs.org/), [Ywallet](https://ywallet.app/), [Zkool](https://github.com/hhanh00/zkool2) — Desktop: [Zingo](https://www.zingolabs.org/), [Ywallet](https://ywallet.app/), [Zkool](https://github.com/hhanh00/zkool2)
 ```
 u12rrgyaz7hwyzf0px29ka43tvk7nu92w7mzc99yv9ld3pg96fp4ef0mxe5kd0j5544yc33jqe66fd5s0fjv7uvsxh0uz24c7fuw44wfwcg2g74jgg2ukmpvc0l4a7r56sgjrra35fy4f0k3spjn5uh6kqxx5elmuv3ajd7zjs8s973e0n
 ```
