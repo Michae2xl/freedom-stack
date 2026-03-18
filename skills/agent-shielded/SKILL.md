@@ -127,7 +127,7 @@ Agent monitors sources via Tor → cross-references data → stores encrypted ev
 1. **Goal?** (what type of agent do you want to run?)
 2. **Have a VPS?** (specs: 16GB+ RAM recommended for Ollama)
 3. **Have a domain?** (optional — works via IP/Tor .onion)
-4. **Want human services too?** (if yes, use the soberana skill alongside)
+4. **Want human services too?** (if yes, use the sovereign skill alongside)
 
 ### Based on answers:
 
@@ -231,6 +231,6 @@ bash scripts/troubleshoot.sh
 | Project | Audience | Focus |
 |---------|----------|-------|
 | **Agent Shielded / Freedom Stack** (this skill) | Devs/AI Agents | Agent Privacy Cloud |
-| **Sovereign Stack** (soberana skill) | Humans | Personal privacy, degoogle |
+| **Sovereign Stack** (sovereign skill) | Humans | Personal privacy, degoogle |
 
 They can run **together on the same VPS** — fully complementary.

@@ -338,9 +338,9 @@ bash install.sh --all --domain yourdomain.com
 
 If Freedom Stack saved you time or protects your privacy, consider supporting the project.
 
-All donations are received in privacy-preserving currencies — send from any mobile wallet (Zashi, Ywallet, or any shielded-compatible app).
+All donations are received in privacy-preserving currencies.
 
-**Zcash (Shielded — fully private):**
+**Zcash (Shielded — fully private):** Send from any shielded wallet ([Zcash FOSS](https://f-droid.org/en/packages/co.electriccoin.zcash.foss/), Zashi, Ywallet)
 ```
 u12rrgyaz7hwyzf0px29ka43tvk7nu92w7mzc99yv9ld3pg96fp4ef0mxe5kd0j5544yc33jqe66fd5s0fjv7uvsxh0uz24c7fuw44wfwcg2g74jgg2ukmpvc0l4a7r56sgjrra35fy4f0k3spjn5uh6kqxx5elmuv3ajd7zjs8s973e0n
 ```
