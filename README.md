@@ -14,8 +14,7 @@
 
 [Quick Start](#quick-start) · [What's Inside](#whats-inside) · [Agent Privacy Cloud](#agent-privacy-cloud) · [Why This Matters](WHY.md)
 
-**Claude Code Skills:**
-[Agent Shielded](skills/agent-shielded/SKILL.md) · [Sovereign](https://github.com/Michae2xl/sovereign-stack/blob/main/skills/sovereign/SKILL.md)
+**[Claude Code Skill](skills/agent-shielded/SKILL.md)**
 
 ---
 
