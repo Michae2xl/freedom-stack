@@ -14,7 +14,7 @@
 
 [Quick Start](#quick-start) · [What's Inside](#whats-inside) · [Agent Privacy Cloud](#agent-privacy-cloud) · [Why This Matters](WHY.md)
 
-**[Claude Code Skill](skills/agent-shielded/SKILL.md)**
+**Skill:** [Agent Shielded](skills/agent-shielded/SKILL.md)
 
 ---
 
