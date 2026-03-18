@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🛡️ Freedom Stack
+# Freedom Stack
 
 ### The First Agent Privacy Cloud
 
@@ -12,11 +12,11 @@
 [![Health Checks](https://img.shields.io/badge/health_checks-23-green)]()
 [![Onion Services](https://img.shields.io/badge/.onion_services-11-purple)]()
 
-[Quick Start](#-quick-start) · [What's Inside](#-whats-inside) · [Agent Privacy Cloud](#-agent-privacy-cloud) · [Why This Matters](WHY.md) · [Docs](docs/)
+[Quick Start](#quick-start) · [What's Inside](#whats-inside) · [Agent Privacy Cloud](#agent-privacy-cloud) · [Why This Matters](WHY.md) · [Docs](docs/)
 
 ---
 
-> **🏆 First mover:** No other product combines AI agent infrastructure with privacy-native architecture (Tor, .onion, E2E, VPN, anonymous search + payments). [Full market analysis →](WHY.md)
+> **First mover:** No other product combines AI agent infrastructure with privacy-native architecture (Tor, .onion, E2E, VPN, anonymous search). [Full market analysis →](WHY.md)
 
 </div>
 
@@ -32,7 +32,6 @@ Every AI agent today leaks data to big tech:
 | Calls an LLM API | OpenAI/Anthropic log everything |
 | Stores results | AWS/Google Cloud sees your data |
 | Communicates | Slack/Discord reads messages |
-| Makes payments | Stripe/PayPal tracks transactions |
 | Runs on a VPS | Provider sees all traffic |
 
 **Freedom Stack fixes all of this.** One command, everything private.
@@ -43,12 +42,11 @@ Every AI agent today leaks data to big tech:
 | Calls an LLM | **Ollama** (local, zero data leaves) |
 | Stores results | **Nextcloud** (your server) + **Qdrant** (vector memory) |
 | Communicates | **Matrix** (E2E encrypted, your server) |
-| Makes payments | **Zcash/ZODL** (shielded transactions) |
 | Runs on a VPS | **Tor** + **WireGuard** (invisible traffic) |
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 **Requirements:** Ubuntu 22.04/24.04 VPS with 16GB+ RAM, 4+ vCPUs, 80GB+ disk.
 
@@ -75,16 +73,16 @@ bash install.sh --all
 
 After ~15 minutes your stack is live. With a domain: `https://<yourdomain.com>`. Without: access services directly by port or via Tor .onion addresses printed at the end.
 
-> **⚠️ SSH port changes to 2222 after install.** Reconnect: `ssh -p 2222 root@<YOUR_VPS_IP>`
+> **SSH port changes to 2222 after install.** Reconnect: `ssh -p 2222 root@<YOUR_VPS_IP>`
 
 ---
 
-## 📦 What's Inside
+## What's Inside
 
 ### 34 Containers, 3 Isolated Networks, 23 Health Checks
 
 <details open>
-<summary><b>🤖 Agent Privacy Cloud (8 components)</b></summary>
+<summary><b>Agent Privacy Cloud (8 components)</b></summary>
 
 | Service | What It Does | Internal Endpoint |
 |---|---|---|
@@ -100,7 +98,7 @@ After ~15 minutes your stack is live. With a domain: `https://<yourdomain.com>`.
 </details>
 
 <details open>
-<summary><b>👤 Human Services (10 services)</b></summary>
+<summary><b>Human Services (10 services)</b></summary>
 
 | Service | Replaces | Subdomain |
 |---|---|---|
@@ -118,7 +116,7 @@ After ~15 minutes your stack is live. With a domain: `https://<yourdomain.com>`.
 </details>
 
 <details open>
-<summary><b>📊 Monitoring & Infrastructure (8 components)</b></summary>
+<summary><b>Monitoring & Infrastructure (8 components)</b></summary>
 
 | Service | Function |
 |---|---|
@@ -134,7 +132,7 @@ After ~15 minutes your stack is live. With a domain: `https://<yourdomain.com>`.
 </details>
 
 <details open>
-<summary><b>🔒 Security Hardening</b></summary>
+<summary><b>Security Hardening</b></summary>
 
 - Unified `docker-compose.yml` (not 34 separate files)
 - All ports behind Caddy (`127.0.0.1` only) — no direct exposure
@@ -154,7 +152,7 @@ After ~15 minutes your stack is live. With a domain: `https://<yourdomain.com>`.
 
 ---
 
-## 🤖 Agent Privacy Cloud
+## Agent Privacy Cloud
 
 The core differentiator. No other platform combines AI agent infrastructure with privacy-native architecture.
 
@@ -196,62 +194,61 @@ requests.put("http://nextcloud:80/remote.php/dav/files/admin/agent-results.json"
 
 | Feature | n8n AI Kit | Dify | LangChain | **Freedom Stack** |
 |---|---|---|---|---|
-| Local LLM | ✓ | ✓ | ✓ | ✓ |
-| Vector DB | ✓ | ✓ | ✓ | ✓ |
-| Visual workflows | ✓ | ✓ | ✗ | ✓ |
-| **Tor routing** | ✗ | ✗ | ✗ | **✓ + rotator** |
-| **Anonymous search** | ✗ | ✗ | ✗ | **SearXNG** |
-| **E2E encrypted chat** | ✗ | ✗ | ✗ | **Matrix** |
-| **.onion services** | ✗ | ✗ | ✗ | **11 services** |
-| **Integrated VPN** | ✗ | ✗ | ✗ | **WireGuard + Tor** |
-| **Private DNS** | ✗ | ✗ | ✗ | **AdGuard** |
-| **Private payments** | ✗ | ✗ | ✗ | **Zcash/ZODL** |
-| **Personal cloud** | ✗ | ✗ | ✗ | **Nextcloud** |
-| **Human + Agent stack** | ✗ | ✗ | ✗ | **✓ UNIQUE** |
+| Local LLM | Yes | Yes | Yes | Yes |
+| Vector DB | Yes | Yes | Yes | Yes |
+| Visual workflows | Yes | Yes | No | Yes |
+| **Tor routing** | No | No | No | **Yes + rotator** |
+| **Anonymous search** | No | No | No | **SearXNG** |
+| **E2E encrypted chat** | No | No | No | **Matrix** |
+| **.onion services** | No | No | No | **11 services** |
+| **Integrated VPN** | No | No | No | **WireGuard + Tor** |
+| **Private DNS** | No | No | No | **AdGuard** |
+| **Personal cloud** | No | No | No | **Nextcloud** |
+| **Human + Agent stack** | No | No | No | **Yes — unique** |
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                YOUR VPS (34 containers)                   │
-│                                                           │
-│  ┌─ HUMAN SERVICES ─────────────────────────────────┐   │
-│  │ Nextcloud+Redis │ Matrix+PG │ Vaultwarden │ Jitsi│   │
-│  │ Forgejo+PG │ Stalwart Mail │ SearXNG │ Element   │   │
-│  └──────────────────────────────────────────────────┘   │
-│                                                           │
-│  ┌─ AGENT PRIVACY CLOUD ────────────────────────────┐   │
-│  │ 🧠 Ollama (LLM)    │ ⚡ n8n (workflows)         │   │
-│  │ 🗄️ Qdrant (memory)  │ 📦 Sandbox (Py/JS)        │   │
-│  │ 🔄 Tor Rotator      │ 🔔 Gotify (notifications) │   │
-│  │ 📊 Agent Dashboard (real-time + endpoints)        │   │
-│  └──────────────────────────────────────────────────┘   │
-│                                                           │
-│  ┌─ PROTECTION ─────────────────────────────────────┐   │
-│  │ Caddy │ Tor (11 .onion) │ AdGuard │ WireGuard   │   │
-│  │ UFW │ fail2ban │ CrowdSec │ AppArmor            │   │
-│  └──────────────────────────────────────────────────┘   │
-│                                                           │
-│  ┌─ MONITORING ─────────────────────────────────────┐   │
-│  │ Grafana │ Prometheus │ Netdata │ Uptime Kuma     │   │
-│  │ Portainer (Docker GUI) │ Watchtower (auto-update)│   │
-│  └──────────────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────────────┘
++-----------------------------------------------------------+
+|                YOUR VPS (34 containers)                     |
+|                                                             |
+|  +- HUMAN SERVICES -----------------------------------+    |
+|  | Nextcloud+Redis | Matrix+PG | Vaultwarden | Jitsi  |    |
+|  | Forgejo+PG | Stalwart Mail | SearXNG | Element     |    |
+|  +----------------------------------------------------+    |
+|                                                             |
+|  +- AGENT PRIVACY CLOUD ------------------------------+    |
+|  | Ollama (LLM)       | n8n (workflows)               |    |
+|  | Qdrant (memory)    | Sandbox (Py/JS)               |    |
+|  | Tor Rotator        | Gotify (notifications)        |    |
+|  | Agent Dashboard (real-time + endpoints)             |    |
+|  +----------------------------------------------------+    |
+|                                                             |
+|  +- PROTECTION ----------------------------------------+   |
+|  | Caddy | Tor (11 .onion) | AdGuard | WireGuard      |   |
+|  | UFW | fail2ban | CrowdSec | AppArmor               |   |
+|  +----------------------------------------------------+    |
+|                                                             |
+|  +- MONITORING ----------------------------------------+   |
+|  | Grafana | Prometheus | Netdata | Uptime Kuma        |   |
+|  | Portainer (Docker GUI) | Watchtower (auto-update)   |   |
+|  +----------------------------------------------------+    |
++-----------------------------------------------------------+
 ```
 
 ### Network Isolation
 
 ```
-net-proxy:   Caddy ↔ all web services (reverse proxy)
+net-proxy:   Caddy <-> all web services (reverse proxy)
 net-data:    Databases (MariaDB, PostgreSQL, Redis, Qdrant)
 net-monitor: Watchtower, Prometheus, Netdata, Portainer
 ```
 
 ---
 
-## 📋 Requirements
+## Requirements
 
 | | Minimum | Recommended |
 |---|---|---|
@@ -259,20 +256,20 @@ net-monitor: Watchtower, Prometheus, Netdata, Portainer
 | **CPU** | 2 vCPUs | 4+ vCPUs |
 | **Disk** | 40GB | 100GB+ (LLM models = 2-7GB each) |
 | **OS** | Ubuntu 22.04 | Ubuntu 24.04 |
-| **Cost** | ~€8/month | ~€18/month (Hetzner CX32) |
+| **Cost** | ~EUR 8/month | ~EUR 18/month (Hetzner CX32) |
 
 ### Recommended VPS Providers
 
 | Provider | Privacy | Price (16GB) | Notes |
 |---|---|---|---|
-| **Hetzner** | ★★★★☆ | €18/mo | Best performance/price, GDPR |
-| **Njalla** | ★★★★★ | ~€30/mo | Zero KYC, crypto only, founded by Pirate Bay co-founder |
-| **1984.is** | ★★★★★ | ~€25/mo | Iceland, strongest free speech laws |
-| **Contabo** | ★★★☆☆ | €12/mo | Cheapest 16GB option |
+| **Hetzner** | High | EUR 18/mo | Best performance/price, GDPR |
+| **Njalla** | Maximum | ~EUR 30/mo | Zero KYC, crypto only, founded by Pirate Bay co-founder |
+| **1984.is** | Maximum | ~EUR 25/mo | Iceland, strongest free speech laws |
+| **Contabo** | Standard | EUR 12/mo | Cheapest 16GB option |
 
 ---
 
-## 🖥️ Also Runs on Mac
+## Also Runs on Mac
 
 Docker Desktop + Ollama native (Apple Silicon GPU = 2-5x faster than VPS CPU).
 
@@ -284,7 +281,7 @@ bash install.sh --agents --searxng --adguard --backup  # skips Linux-only harden
 
 ---
 
-## 🏆 Market Position
+## Market Position
 
 Freedom Stack is the **only** product that combines AI agent infrastructure with privacy-native architecture.
 
@@ -294,7 +291,7 @@ No other platform routes agent traffic through Tor, generates .onion services, i
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [x] v1.0 — Basic self-hosted stack (14 containers)
 - [x] v2.0 — Security hardening (unified compose, isolated networks, health checks)
@@ -303,8 +300,7 @@ No other platform routes agent traffic through Tor, generates .onion services, i
 
 ---
 
-
-## 📄 License
+## License
 
 [GNU Affero General Public License v3.0](LICENSE) — Free as in freedom.
 
@@ -312,7 +308,7 @@ You can use, modify, and distribute this software. If you run a modified version
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 This software is provided for legitimate privacy and security purposes. Users are responsible for complying with applicable laws in their jurisdiction. The authors do not endorse or encourage any illegal activity.
 
@@ -332,10 +328,17 @@ bash install.sh --all --domain yourdomain.com
 
 ---
 
-## 💛 Donations
+## Related Projects
+
+- **[Sovereign Stack](https://github.com/Michae2xl/sovereign-stack)** — From Hero to Sovereign: the complete digital freedom journey for humans (degoogle, self-hosted, 5 phases)
+
+---
+
+## Donations
 
 If Freedom Stack saved you time or protects your privacy, consider supporting the project.
-All donations are received in privacy-preserving currencies.
+
+All donations are received in privacy-preserving currencies — send from any mobile wallet (Zashi, Ywallet, or any shielded-compatible app).
 
 **Zcash (Shielded — fully private):**
 ```
